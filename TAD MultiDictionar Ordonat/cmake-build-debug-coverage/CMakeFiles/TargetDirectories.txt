@@ -1,0 +1,3 @@
+/home/stefan/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/TAD_MultiDictionar_Ordonat.dir
+/home/stefan/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/stefan/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

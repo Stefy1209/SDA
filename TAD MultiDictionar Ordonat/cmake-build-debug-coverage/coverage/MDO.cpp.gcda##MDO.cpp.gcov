@@ -1,0 +1,399 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/MDO.cpp
+        -:    0:Graph:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/TAD_MultiDictionar_Ordonat.dir/MDO.cpp.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/TAD_MultiDictionar_Ordonat.dir/MDO.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "IteratorMDO.h"
+        -:    2:#include "MDO.h"
+        -:    3:#include <iostream>
+        -:    4:#include <vector>
+        -:    5:
+        -:    6:#include <exception>
+        -:    7:using namespace std;
+        -:    8:
+        -:    9:///Teta(1)
+function _ZN3MDOC2EPFbiiE called 8 returned 100% blocks executed 88%
+        8:   10:MDO::MDO(Relatie r) {
+        -:   11:    /* de adaugat */
+        8:   12:    relation = r;
+        8:   13:    length = 0;
+        8:   14:    capacity = 1;
+        8:   15:    start = NULL_Position;
+        8:   16:    first_free = 0;
+      16*:   17:    e = new TElem [capacity];
+        8:   17-block  0
+branch  0 taken 8 (fallthrough)
+branch  1 taken 0
+        8:   17-block  1
+    %%%%%:   17-block  2
+call    2 never executed
+        8:   17-block  3
+call    3 returned 8
+        8:   17-block  4
+call    4 returned 8
+       16:   17-block  5
+branch  5 taken 8
+branch  6 taken 8 (fallthrough)
+       8*:   18:    next = new long long [capacity];
+        8:   18-block  0
+branch  0 taken 8 (fallthrough)
+branch  1 taken 0
+        8:   18-block  1
+    %%%%%:   18-block  2
+call    2 never executed
+        8:   18-block  3
+call    3 returned 8
+        -:   19:
+       16:   20:    for(size_t i = 0; i < capacity; ++i) {
+       16:   20-block  0
+branch  0 taken 8
+branch  1 taken 8 (fallthrough)
+        8:   21:        e[i].first = NULL_TCheie;
+        8:   22:        next[i] = NULL_Position;
+        8:   22-block  0
+        -:   23:    }
+        8:   24:}
+        -:   25:
+        -:   26:/// Best Case: Teta(1)
+        -:   27:/// Worst Case: Teta(capacity)
+        -:   28:/// Average Case: O(capacity)
+function _ZN3MDO6adaugaEii called 684 returned 100% blocks executed 95%
+      684:   29:void MDO::adauga(TCheie c, TValoare v) {
+        -:   30:    /* de adaugat */
+      684:   31:    if(length == capacity) {
+      684:   31-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 645
+       39:   32:        TElem * aux_e = e;
+       39:   33:        long long * aux_next = next;
+        -:   34:
+       39:   35:        capacity *= 2;
+        -:   36:
+    2333*:   37:        e = new TElem [capacity];
+       39:   37-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 0
+       39:   37-block  1
+    %%%%%:   37-block  2
+call    2 never executed
+       39:   37-block  3
+call    3 returned 39
+     2294:   37-block  4
+call    4 returned 2294
+     2333:   37-block  5
+branch  5 taken 2294
+branch  6 taken 39 (fallthrough)
+      39*:   38:        next = new long long [capacity];
+       39:   38-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 0
+       39:   38-block  1
+    %%%%%:   38-block  2
+call    2 never executed
+       39:   38-block  3
+call    3 returned 39
+        -:   39:
+     1186:   40:        for(size_t i = 0; i < capacity/2; ++i) {
+     1186:   40-block  0
+branch  0 taken 1147
+branch  1 taken 39 (fallthrough)
+     1147:   41:            e[i] = aux_e[i];
+     1147:   41-block  0
+call    0 returned 1147
+     1147:   42:            next[i] = aux_next[i];
+        -:   43:        }
+     1186:   44:        for(size_t i = capacity/2; i < capacity; ++i) {
+       39:   44-block  0
+     1186:   44-block  1
+branch  0 taken 1147
+branch  1 taken 39 (fallthrough)
+     1147:   45:            e[i].first = NULL_TCheie;
+     1147:   46:            next[i] = NULL_Position;
+     1147:   46-block  0
+        -:   47:        }
+        -:   48:
+       39:   49:        first_free = length;
+        -:   50:
+       39:   51:        delete [] aux_e;
+       39:   51-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 0
+       39:   51-block  1
+call    2 returned 39
+       39:   52:        delete [] aux_next;
+       39:   52-block  0
+branch  0 taken 39 (fallthrough)
+branch  1 taken 0
+       39:   52-block  1
+call    2 returned 39
+        -:   53:    }
+        -:   54:
+      684:   55:    long long it = start;
+      684:   56:    long long pred = NULL_Position;
+    46024:   57:    while(it != NULL_Position and relation(e[it].first, c) and e[it].first != c) {
+      684:   57-block  0
+    46024:   57-block  1
+branch  0 taken 45985 (fallthrough)
+branch  1 taken 39
+    45985:   57-block  2
+call    2 returned 45985
+branch  3 taken 45577 (fallthrough)
+branch  4 taken 408
+    45577:   57-block  3
+branch  5 taken 45340 (fallthrough)
+branch  6 taken 237
+    45340:   57-block  4
+      684:   57-block  5
+    46024:   57-block  6
+branch  7 taken 45340
+branch  8 taken 684 (fallthrough)
+    45340:   58:        pred = it;
+    45340:   59:        it = next[it];
+    45340:   59-block  0
+        -:   60:    }
+        -:   61:
+      684:   62:    e[first_free].first = c;
+      684:   63:    e[first_free].second = v;
+      684:   64:    if(pred == NULL_Position) {
+      684:   64-block  0
+branch  0 taken 59 (fallthrough)
+branch  1 taken 625
+       59:   65:        next[first_free] = start;
+       59:   66:        start = first_free;
+       59:   66-block  0
+        -:   67:    }
+        -:   68:    else {
+      625:   69:        next[pred] = first_free;
+      625:   70:        next[first_free] = it;
+      625:   70-block  0
+        -:   71:    }
+        -:   72:
+      684:   73:    ++length;
+        -:   74:
+      684:   75:    if(length == capacity) {
+      684:   75-block  0
+branch  0 taken 40 (fallthrough)
+branch  1 taken 644
+       40:   76:        first_free = NULL_Position;
+       40:   76-block  0
+        -:   77:    }
+        -:   78:    else {
+     1288:   79:        while(e[first_free].first != NULL_TCheie) {
+      644:   79-block  0
+     1288:   79-block  1
+branch  0 taken 644
+branch  1 taken 644 (fallthrough)
+      644:   80:            first_free++;
+      644:   80-block  0
+        -:   81:        }
+        -:   82:    }
+      684:   83:}
+        -:   84:
+        -:   85:/// Best case: Teta(1)
+        -:   86:/// Worst case: Teta(length)
+        -:   87:/// Average case: O(length)
+function _ZNK3MDO5cautaEi called 92 returned 100% blocks executed 95%
+       92:   88:vector<TValoare> MDO::cauta(TCheie c) const {
+        -:   89:    /* de adaugat */
+       92:   90:    vector<TValoare> values;
+       92:   90-block  0
+call    0 returned 92
+        -:   91:
+       92:   92:    long long current = start;
+      732:   93:    while(current != NULL_Position and relation(e[current].first, c) and c != e[current].first) {
+      732:   93-block  0
+branch  0 taken 682 (fallthrough)
+branch  1 taken 50
+      682:   93-block  1
+call    2 returned 682
+branch  3 taken 682 (fallthrough)
+branch  4 taken 0 (throw)
+      682:   93-block  2
+branch  5 taken 663 (fallthrough)
+branch  6 taken 19
+      663:   93-block  3
+branch  7 taken 640 (fallthrough)
+branch  8 taken 23
+      640:   93-block  4
+       92:   93-block  5
+      732:   93-block  6
+branch  9 taken 640
+branch 10 taken 92 (fallthrough)
+      640:   94:        current = next[current];
+      640:   94-block  0
+        -:   95:    }
+      138:   96:    while(current != NULL_Position and c == e[current].first) {
+       92:   96-block  0
+      138:   96-block  1
+branch  0 taken 85 (fallthrough)
+branch  1 taken 53
+       85:   96-block  2
+branch  2 taken 46
+branch  3 taken 39 (fallthrough)
+       46:   97:        values.push_back(e[current].second);
+       46:   97-block  0
+call    0 returned 46
+branch  1 taken 46 (fallthrough)
+branch  2 taken 0 (throw)
+       46:   98:        current = next[current];
+       46:   98-block  0
+        -:   99:    }
+       92:  100:    return values;
+       92:  100-block  0
+       92:  100-block  1
+    =====:  101:}
+    $$$$$:  101-block  0
+call    0 never executed
+        -:  102:
+        -:  103:/// Best case: Teta(1)
+        -:  104:/// Worst case: Teta(length)
+        -:  105:/// Average Case: O(length)
+function _ZN3MDO6stergeEii called 69 returned 100% blocks executed 100%
+       69:  106:bool MDO::sterge(TCheie c, TValoare v) {
+        -:  107:    /* de adaugat */
+       69:  108:    long long current = start;
+       69:  109:    long long pred = NULL_Position;
+      421:  110:    while(current != NULL_Position and relation(e[current].first, c) and (c != e[current].first or v != e[current].second)) {
+       69:  110-block  0
+      421:  110-block  1
+branch  0 taken 413 (fallthrough)
+branch  1 taken 8
+      413:  110-block  2
+call    2 returned 413
+branch  3 taken 388 (fallthrough)
+branch  4 taken 25
+      388:  110-block  3
+branch  5 taken 93 (fallthrough)
+branch  6 taken 295
+       93:  110-block  4
+branch  7 taken 57 (fallthrough)
+branch  8 taken 36
+      352:  110-block  5
+       69:  110-block  6
+      421:  110-block  7
+branch  9 taken 352
+branch 10 taken 69 (fallthrough)
+      352:  111:        pred = current;
+      352:  112:        current = next[current];
+      352:  112-block  0
+        -:  113:    }
+       69:  114:    if(current != NULL_Position and c == e[current].first and v == e[current].second) {
+       69:  114-block  0
+branch  0 taken 61 (fallthrough)
+branch  1 taken 8
+       61:  114-block  1
+branch  2 taken 36 (fallthrough)
+branch  3 taken 25
+       36:  114-block  2
+branch  4 taken 36 (fallthrough)
+branch  5 taken 0
+       36:  115:        if(current == start) {
+       36:  115-block  0
+branch  0 taken 13 (fallthrough)
+branch  1 taken 23
+       13:  116:            start = next[current];
+       13:  116-block  0
+        -:  117:        }
+        -:  118:        else {
+       23:  119:            next[pred] = next[current];
+       23:  119-block  0
+        -:  120:        }
+        -:  121:
+       36:  122:        e[current].first = NULL_TCheie;
+       36:  123:        next[current] = NULL_Position;
+       36:  124:        if(current < first_free)
+       36:  124-block  0
+branch  0 taken 3 (fallthrough)
+branch  1 taken 33
+        3:  125:            first_free = current;
+        3:  125-block  0
+       36:  126:        --length;
+       36:  127:        return true;
+       36:  127-block  0
+        -:  128:    }
+       33:  129:    return false;
+       33:  129-block  0
+        -:  130:}
+        -:  131:
+        -:  132:/// Teta(1)
+function _ZNK3MDO3dimEv called 5 returned 100% blocks executed 100%
+        5:  133:int MDO::dim() const {
+        -:  134:    /* de adaugat */
+        5:  135:    return length;
+        5:  135-block  0
+        -:  136:}
+        -:  137:
+        -:  138:/// Teta(1)
+function _ZNK3MDO3vidEv called 6 returned 100% blocks executed 100%
+        6:  139:bool MDO::vid() const {
+        -:  140:    /* de adaugat */
+        6:  141:    return length == 0;
+        6:  141-block  0
+        -:  142:}
+        -:  143:
+        -:  144:/// Teta(1)
+function _ZNK3MDO8iteratorEv called 5 returned 100% blocks executed 100%
+        5:  145:IteratorMDO MDO::iterator() const {
+        5:  146:    return IteratorMDO(*this);
+        5:  146-block  0
+call    0 returned 5
+        -:  147:}
+        -:  148:
+        -:  149:/// Teta(1)
+function _ZN3MDOD2Ev called 8 returned 100% blocks executed 100%
+        8:  150:MDO::~MDO() {
+        -:  151:    /* de adaugat */
+        8:  152:    delete [] e;
+        8:  152-block  0
+branch  0 taken 8 (fallthrough)
+branch  1 taken 0
+        8:  152-block  1
+call    2 returned 8
+        8:  153:    delete [] next;
+        8:  153-block  0
+branch  0 taken 8 (fallthrough)
+branch  1 taken 0
+        8:  153-block  1
+call    2 returned 8
+        8:  154:    start = NULL_Position;
+        8:  155:    length = 0;
+        8:  156:    capacity = 0;
+        8:  157:}
+        -:  158:
+        -:  159:/// Teta(length)
+function _ZN3MDO7golesteEv called 2 returned 100% blocks executed 100%
+        2:  160:void MDO::goleste() {
+        2:  161:    int p = start, aux;
+       46:  162:    while(p != NULL_Position) {
+        2:  162-block  0
+       46:  162-block  1
+branch  0 taken 44
+branch  1 taken 2 (fallthrough)
+       44:  163:        e[p].first = NULL_TCheie;
+       44:  164:        aux = p;
+       44:  165:        p = next[p];
+       44:  166:        next[aux] = NULL_Position;
+       44:  166-block  0
+        -:  167:    }
+        2:  168:    length = 0;
+        2:  169:    start = NULL_Position;
+        2:  170:    first_free = 0;
+        2:  171:}
+        -:  172:
+        -:  173:/*
+        -:  174: *  Pseudocod GOLESTE:
+        -:  175: *
+        -:  176: *  GOLESTE(d - input/output):
+        -:  177: *      p <- start
+        -:  178: *
+        -:  179: *      cat timp p != NULL_Position, executa:
+        -:  180: *          e[p].cheie/first <- NULL_TCheie
+        -:  181: *          aux <- p
+        -:  182: *          p <- next[p]
+        -:  183: *          next[aux] <- NULL_Position
+        -:  184: *      sf. cat timp
+        -:  185: *
+        -:  186: *      length <- 0
+        -:  187: *      start <- NULL_Position
+        -:  188: *      first_free <- 0
+        -:  189: *  sf. GOLESTE
+        -:  190: */

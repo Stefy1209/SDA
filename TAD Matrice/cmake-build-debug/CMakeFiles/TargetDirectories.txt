@@ -1,0 +1,3 @@
+/home/stefy0-0/CLionProjects/SAD/TAD Matrice/cmake-build-debug/CMakeFiles/TAD_Matrice.dir
+/home/stefy0-0/CLionProjects/SAD/TAD Matrice/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/stefy0-0/CLionProjects/SAD/TAD Matrice/cmake-build-debug/CMakeFiles/rebuild_cache.dir

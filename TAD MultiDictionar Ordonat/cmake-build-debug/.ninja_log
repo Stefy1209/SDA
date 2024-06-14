@@ -1,0 +1,13 @@
+# ninja log v5
+1	214	1713892456370169003	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/main.cpp.o	f2c99aa3a6b6042b
+2	153	1714038603653259244	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/IteratorMDO.cpp.o	66039bab5f429636
+1	277	1714036448331966697	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestScurt.cpp.o	590c1988d63893da
+1	415	1714038603917223150	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/MDO.cpp.o	b9722247960d0b88
+415	493	1714038603993212759	TAD_MultiDictionar_Ordonat	95c23176e1a9fe3f
+1	727	1714036448787904354	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestExtins.cpp.o	1bb767661eb0ebd5
+3	416	1714382169603625158	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/IteratorMDO.cpp.o	6b0cfafc79df91e3
+3	548	1714382169735624545	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestScurt.cpp.o	2a860de67beb3784
+2	816	1714382170003623300	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/main.cpp.o	783fa0ddf58ce466
+4	828	1714382170011623262	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestExtins.cpp.o	f6e6cc101d97ea9d
+2	1098	1714382170283621991	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/MDO.cpp.o	b71c5db60faa650b
+1098	1187	1714382170371621580	TAD_MultiDictionar_Ordonat	95c23176e1a9fe3f

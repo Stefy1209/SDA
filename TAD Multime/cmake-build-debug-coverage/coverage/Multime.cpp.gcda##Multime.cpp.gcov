@@ -1,0 +1,363 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/SAD/TAD Multime/Multime.cpp
+        -:    0:Graph:/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/TAD_Multime.dir/Multime.cpp.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/TAD_Multime.dir/Multime.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 10.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "Multime.h"
+        -:    6:#include "IteratorMultime.h"
+        -:    7:#include <cstdlib>
+        -:    8:
+        -:    9:using namespace std;
+        -:   10:
+function _Z3relii called 4801933 returned 100% blocks executed 100%
+  4801933:   11:bool rel(TElem e1, TElem e2)
+        -:   12:/// verifica relatia de ordine
+        -:   13:/// \param e1 - TElem
+        -:   14:/// \param e2 - TElem
+        -:   15:/// \return bool
+        -:   16:/// \pre e1 - TElem
+        -:   17:/// \pre e2 - TElem
+        -:   18:/// \post TRUE - daca are loc relatia de ordine
+        -:   19:/// \post FALSE - in caz contrar
+        -:   20:/// \Complexity TETA(1)
+        -:   21:{
+  4801933:   22:    return e1 <= e2;
+  4801933:   22-block  0
+        -:   23:}
+        -:   24:
+function _ZN7MultimeC2Ev called 10 returned 100% blocks executed 100%
+       10:   25:Multime::Multime()
+        -:   26:/// creaza MULTIME
+        -:   27:/// \Complexity TETA(1)
+        -:   28:{
+       10:   29:    vector = (TElem *)malloc(sizeof(TElem));
+       10:   30:    size = 0;
+       10:   31:    capacity = 1;
+       10:   32:}
+        -:   33:
+function _ZN7Multime6adaugaEi called 197942 returned 100% blocks executed 97%
+   197942:   34:bool Multime::adauga(TElem elem)
+        -:   35:/// adauaga element in multime
+        -:   36:/// \param elem - TElem
+        -:   37:/// \return TRUE - daca a reusit sa adauge elem in MULTIME
+        -:   38:/// \return FALSE - daca nu a reusit sa adauge elem in MULTIME sau deja se afla in ea
+        -:   39:/// \pre elem - TElem
+        -:   40:/// \post MULTIME = MULTIME + {elem}, daca elem nu se afla in MULTIME
+        -:   41:/// \post MULTIME = MULTIME, daca elem deja se afla in MULTIME
+        -:   42:/// \Complexity Best Case: TETA(1)
+        -:   43:/// \Complexity Worst Case: TETA(log(N) + N) (cushion)
+        -:   44:/// \Complexity Average Case: O(long(N) + N) (cushion)
+        -:   45:{
+   197942:   46:    if(size == capacity) {
+   197942:   46-block  0
+branch  0 taken 62 (fallthrough)
+branch  1 taken 197880
+        -:   47:        TElem * ptr_aux;
+        -:   48:
+       62:   49:        capacity *= 2;
+       62:   50:        ptr_aux = (TElem *)realloc(vector, capacity * sizeof(TElem));
+        -:   51:
+       62:   52:        if(ptr_aux == nullptr)
+       62:   52-block  0
+branch  0 taken 0 (fallthrough)
+branch  1 taken 62
+    #####:   53:            return false;
+    %%%%%:   53-block  0
+        -:   54:
+       62:   55:        vector = ptr_aux;
+       62:   55-block  0
+        -:   56:    }
+        -:   57:
+   197942:   58:    if(size == 0 or (rel(vector[size - 1], elem) and vector[size - 1] != elem)) {
+   197942:   58-block  0
+branch  0 taken 197931 (fallthrough)
+branch  1 taken 11
+   197931:   58-block  1
+call    2 returned 197931
+branch  3 taken 7978 (fallthrough)
+branch  4 taken 189953
+     7978:   58-block  2
+branch  5 taken 6675 (fallthrough)
+branch  6 taken 1303
+     6686:   58-block  3
+   191256:   58-block  4
+   197942:   58-block  5
+branch  7 taken 6686 (fallthrough)
+branch  8 taken 191256
+     6686:   59:        vector[size++] = elem;
+     6686:   60:        return true;
+     6686:   60-block  0
+        -:   61:    }
+        -:   62:
+   191256:   63:    if(rel(elem, vector[0]) and elem != vector[0]) {
+   191256:   63-block  0
+call    0 returned 191256
+branch  1 taken 10110 (fallthrough)
+branch  2 taken 181146
+    10110:   63-block  1
+branch  3 taken 9993 (fallthrough)
+branch  4 taken 117
+     9993:   63-block  2
+   181263:   63-block  3
+   191256:   63-block  4
+branch  5 taken 9993 (fallthrough)
+branch  6 taken 181263
+149013850:   64:        for(size_t i = size; i > 0; --i)
+     9993:   64-block  0
+149013850:   64-block  1
+branch  0 taken 149003857
+branch  1 taken 9993 (fallthrough)
+149003857:   65:            vector[i] = vector[i - 1];
+149003857:   65-block  0
+        -:   66:
+     9993:   67:        vector[0] = elem;
+     9993:   68:        ++size;
+     9993:   69:        return true;
+     9993:   69-block  0
+        -:   70:    }
+        -:   71:
+        -:   72:    size_t left, right, mid;
+   181263:   73:    left = 0;
+   181263:   74:    right = size - 1;
+   181263:   74-block  0
+        -:   75:
+        -:   76:    do {
+  2595955:   77:        mid = left + ((right - left) / 2);
+        -:   78:
+  2595955:   79:        if(vector[mid] == elem)
+  2595955:   79-block  0
+branch  0 taken 117276 (fallthrough)
+branch  1 taken 2478679
+   117276:   80:            return false;
+   117276:   80-block  0
+        -:   81:
+  2478679:   82:        if(rel(elem, vector[mid]))
+  2478679:   82-block  0
+call    0 returned 2478679
+branch  1 taken 1199477 (fallthrough)
+branch  2 taken 1279202
+  1199477:   83:            right = mid - 1;
+  1199477:   83-block  0
+        -:   84:
+  1279202:   85:        else left = mid + 1;
+  1279202:   85-block  0
+  2478679:   86:    } while (left <= right);
+  2478679:   86-block  0
+branch  0 taken 2414692
+branch  1 taken 63987 (fallthrough)
+        -:   87:
+839542273:   88:    for(size_t i = size; i > left; --i)
+    63987:   88-block  0
+839542273:   88-block  1
+branch  0 taken 839478286
+branch  1 taken 63987 (fallthrough)
+839478286:   89:        vector[i] = vector[i - 1];
+839478286:   89-block  0
+        -:   90:
+    63987:   91:    vector[left] = elem;
+    63987:   92:    ++size;
+    63987:   93:    return true;
+    63987:   93-block  0
+        -:   94:}
+        -:   95:
+function _ZN7Multime6stergeEi called 801233 returned 100% blocks executed 100%
+   801233:   96:bool Multime::sterge(TElem elem)
+        -:   97:/// \Complexity Best Case: TETA(1)
+        -:   98:/// \Complexity Worst Case: TETA(log N + N)
+        -:   99:/// \Complexity Average Case: O(long N + N)
+        -:  100:{
+   801233:  101:    if(size == 0)
+   801233:  101-block  0
+branch  0 taken 730331 (fallthrough)
+branch  1 taken 70902
+   730331:  102:        return false;
+   730331:  102-block  0
+        -:  103:
+    70902:  104:    if(rel(elem, vector[0]) and elem != vector[0])
+    70902:  104-block  0
+call    0 returned 70902
+branch  1 taken 700 (fallthrough)
+branch  2 taken 70202
+      700:  104-block  1
+branch  3 taken 398 (fallthrough)
+branch  4 taken 302
+      398:  104-block  2
+    70504:  104-block  3
+    70902:  104-block  4
+branch  5 taken 398 (fallthrough)
+branch  6 taken 70504
+      398:  105:        return false;
+      398:  105-block  0
+        -:  106:
+    70504:  107:    if(rel(vector[size - 1], elem) and vector[size - 1] != elem)
+    70504:  107-block  0
+call    0 returned 70504
+branch  1 taken 70204 (fallthrough)
+branch  2 taken 300
+    70204:  107-block  1
+branch  3 taken 10101 (fallthrough)
+branch  4 taken 60103
+    10101:  107-block  2
+    60403:  107-block  3
+    70504:  107-block  4
+branch  5 taken 10101 (fallthrough)
+branch  6 taken 60403
+    10101:  108:        return false;
+    10101:  108-block  0
+        -:  109:
+        -:  110:    size_t left, right, mid;
+    60403:  111:    left = 0;
+    60403:  112:    right = size - 1;
+    60403:  112-block  0
+        -:  113:
+        -:  114:    do {
+   896719:  115:        mid = left + ((right - left) / 2);
+        -:  116:
+   896719:  117:        if(vector[mid] == elem) {
+   896719:  117-block  0
+branch  0 taken 60402 (fallthrough)
+branch  1 taken 836317
+    85255:  118:            for(size_t i = mid + 1; i < size; ++i)
+    60402:  118-block  0
+    85255:  118-block  1
+branch  0 taken 24853
+branch  1 taken 60402 (fallthrough)
+    24853:  119:                vector[i - 1] = vector[i];
+    24853:  119-block  0
+        -:  120:
+    60402:  121:            --size;
+    60402:  122:            return true;
+    60402:  122-block  0
+        -:  123:        }
+        -:  124:
+   836317:  125:        if(rel(elem, vector[mid]))
+   836317:  125-block  0
+call    0 returned 836317
+branch  1 taken 1348 (fallthrough)
+branch  2 taken 834969
+     1348:  126:            right = mid - 1;
+     1348:  126-block  0
+   834969:  127:        else left = mid + 1;
+   834969:  127-block  0
+   836317:  128:    } while (left <= right);
+   836317:  128-block  0
+branch  0 taken 836316
+branch  1 taken 1 (fallthrough)
+        -:  129:
+        1:  130:    return false;
+        1:  130-block  0
+        -:  131:}
+        -:  132:
+function _ZNK7Multime5cautaEi called 60422 returned 100% blocks executed 96%
+    60422:  133:bool Multime::cauta(TElem elem) const
+        -:  134:/// \Complexity Best Case: TETA(1)
+        -:  135:/// \Complexity Worst Case: TETA(long N)
+        -:  136:/// \Complexity Average Case: O(long N)
+        -:  137:{
+    60422:  138:    if(size == 0)
+    60422:  138-block  0
+branch  0 taken 20 (fallthrough)
+branch  1 taken 60402
+       20:  139:        return false;
+       20:  139-block  0
+        -:  140:
+    60402:  141:    if(rel(elem, vector[0]) and elem != vector[0])
+    60402:  141-block  0
+call    0 returned 60402
+branch  1 taken 103 (fallthrough)
+branch  2 taken 60299
+      103:  141-block  1
+branch  3 taken 101 (fallthrough)
+branch  4 taken 2
+      101:  141-block  2
+    60301:  141-block  3
+    60402:  141-block  4
+branch  5 taken 101 (fallthrough)
+branch  6 taken 60301
+      101:  142:        return false;
+      101:  142-block  0
+        -:  143:
+    60301:  144:    if(rel(vector[size-1], elem) and vector[size - 1] != elem)
+    60301:  144-block  0
+call    0 returned 60301
+branch  1 taken 103 (fallthrough)
+branch  2 taken 60198
+      103:  144-block  1
+branch  3 taken 100 (fallthrough)
+branch  4 taken 3
+      100:  144-block  2
+    60201:  144-block  3
+    60301:  144-block  4
+branch  5 taken 100 (fallthrough)
+branch  6 taken 60201
+      100:  145:        return false;
+      100:  145-block  0
+        -:  146:
+        -:  147:    size_t left, right, mid;
+    60201:  148:    left = 0;
+    60201:  149:    right = size - 1;
+    60201:  149-block  0
+        -:  150:
+        -:  151:    do {
+   895837:  152:        mid = left + ((right - left) / 2);
+        -:  153:
+   895837:  154:        if(vector[mid] == elem)
+   895837:  154-block  0
+branch  0 taken 60201 (fallthrough)
+branch  1 taken 835636
+    60201:  155:            return true;
+    60201:  155-block  0
+        -:  156:
+   835636:  157:        if(rel(elem, vector[mid]))
+   835636:  157-block  0
+call    0 returned 835636
+branch  1 taken 409550 (fallthrough)
+branch  2 taken 426086
+   409550:  158:            right = mid - 1;
+   409550:  158-block  0
+        -:  159:
+   426086:  160:        else left = mid + 1;
+   426086:  160-block  0
+   835636:  161:    } while (left <= right);
+   835636:  161-block  0
+branch  0 taken 835636
+branch  1 taken 0 (fallthrough)
+        -:  162:
+    #####:  163:    return false;
+    %%%%%:  163-block  0
+        -:  164:}
+        -:  165:
+function _ZNK7Multime3dimEv called 60019 returned 100% blocks executed 100%
+    60019:  166:int Multime::dim() const
+        -:  167:/// \Complexity TETA(1)
+        -:  168:{
+    60019:  169:    return size;
+    60019:  169-block  0
+        -:  170:}
+        -:  171:
+function _ZNK7Multime4vidaEv called 6 returned 100% blocks executed 100%
+        6:  172:bool Multime::vida() const
+        -:  173:/// \Complexity TETA(1)
+        -:  174:{
+        6:  175:    return size == 0;
+        6:  175-block  0
+        -:  176:}
+        -:  177:
+function _ZNK7Multime8iteratorEv called 10 returned 100% blocks executed 100%
+       10:  178:IteratorMultime Multime::iterator() const
+        -:  179:/// \Complexity TETA(1)
+        -:  180:{
+       10:  181:    return IteratorMultime(*this);
+       10:  181-block  0
+call    0 returned 10
+        -:  182:}
+        -:  183:
+function _ZN7MultimeD2Ev called 10 returned 100% blocks executed 100%
+       10:  184:Multime::~Multime()
+        -:  185:/// \Comeplexity TETA(1)
+        -:  186:{
+       10:  187:    free(vector);
+       10:  188:}

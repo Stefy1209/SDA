@@ -1,0 +1,7 @@
+# ninja log v5
+1	362	1714037580133210117	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/main.cpp.o	bd0c7f70008a326c
+1	239	1714037580013226524	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/IteratorMDO.cpp.o	b3bbe53299eb7beb
+1	190	1714037579961233632	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestScurt.cpp.o	7e291bf297824cb0
+1	487	1714037580257193164	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/MDO.cpp.o	f4c60cd64a1a48bb
+632	697	1714037580469164181	TAD_MultiDictionar_Ordonat	295b37d23bd63c87
+2	631	1714037580405172931	CMakeFiles/TAD_MultiDictionar_Ordonat.dir/TestExtins.cpp.o	7ece84d341ca8584

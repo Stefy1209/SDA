@@ -1,0 +1,3 @@
+/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/TAD_Multime.dir
+/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/edit_cache.dir
+/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/rebuild_cache.dir

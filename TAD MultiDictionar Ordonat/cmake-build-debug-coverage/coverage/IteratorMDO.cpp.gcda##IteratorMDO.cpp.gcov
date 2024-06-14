@@ -1,0 +1,41 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/IteratorMDO.cpp
+        -:    0:Graph:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/TAD_MultiDictionar_Ordonat.dir/IteratorMDO.cpp.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/SAD/TAD MultiDictionar Ordonat/cmake-build-debug-coverage/CMakeFiles/TAD_MultiDictionar_Ordonat.dir/IteratorMDO.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include "IteratorMDO.h"
+        -:    2:#include "MDO.h"
+        -:    3:
+function _ZN11IteratorMDOC2ERK3MDO called 5 returned 100% blocks executed 100%
+        5:    4:IteratorMDO::IteratorMDO(const MDO& d) : dict(d){
+        -:    5:	/* de adaugat */
+        5:    6:    it = dict.start;
+        5:    7:}
+        -:    8:
+function _ZN11IteratorMDO4primEv called 5 returned 100% blocks executed 100%
+        5:    9:void IteratorMDO::prim(){
+        -:   10:	/* de adaugat */
+        5:   11:    it = dict.start;
+        5:   12:}
+        -:   13:
+function _ZN11IteratorMDO7urmatorEv called 606 returned 100% blocks executed 100%
+      606:   14:void IteratorMDO::urmator(){
+        -:   15:	/* de adaugat */
+      606:   16:    it = dict.next[it];
+      606:   17:}
+        -:   18:
+function _ZNK11IteratorMDO5validEv called 615 returned 100% blocks executed 100%
+      615:   19:bool IteratorMDO::valid() const{
+        -:   20:	/* de adaugat */
+      615:   21:	return it != NULL_Position;
+      615:   21-block  0
+        -:   22:}
+        -:   23:
+function _ZNK11IteratorMDO7elementEv called 606 returned 100% blocks executed 100%
+      606:   24:TElem IteratorMDO::element() const{
+        -:   25:	/* de adaugat */
+      606:   26:	return pair <TCheie, TValoare>  (dict.e[it].first, dict.e[it].second);
+      606:   26-block  0
+call    0 returned 606
+        -:   27:}
+        -:   28:
+        -:   29:

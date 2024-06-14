@@ -1,0 +1,79 @@
+        -:    0:Source:/home/stefy0-0/CLionProjects/SAD/TAD Multime/IteratorMultime.cpp
+        -:    0:Graph:/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/TAD_Multime.dir/IteratorMultime.cpp.gcno
+        -:    0:Data:/home/stefy0-0/CLionProjects/SAD/TAD Multime/cmake-build-debug-coverage/CMakeFiles/TAD_Multime.dir/IteratorMultime.cpp.gcda
+        -:    0:Runs:1
+        -:    1://
+        -:    2:// Created by stefy0-0 on 10.03.2024.
+        -:    3://
+        -:    4:
+        -:    5:#include "IteratorMultime.h"
+        -:    6:#include "Multime.h"
+        -:    7:
+function _ZN15IteratorMultimeC2ERK7Multime called 10 returned 100% blocks executed 100%
+       10:    8:IteratorMultime::IteratorMultime(const Multime& m): mult(m) {
+       10:    9:    cursor = mult.vector;
+       10:   10:}
+        -:   11:
+function _ZNK15IteratorMultime7elementEv called 60079 returned 100% blocks executed 67%
+    60079:   12:TElem IteratorMultime::element() const
+        -:   13:/// \Complexity TETA(1)
+        -:   14:{
+    60079:   15:    if(not valid())
+    60079:   15-block  0
+call    0 returned 60079
+branch  1 taken 0 (fallthrough)
+branch  2 taken 60079
+    #####:   16:        throw ("Elementul nu poate fi accesat");
+    %%%%%:   16-block  0
+call    0 never executed
+call    1 never executed
+    60079:   17:    return *cursor;
+    60079:   17-block  0
+        -:   18:}
+        -:   19:
+function _ZNK15IteratorMultime5validEv called 120168 returned 100% blocks executed 100%
+   120168:   20:bool IteratorMultime::valid() const
+        -:   21:/// \Complexity TETA(1)
+        -:   22:{
+   120168:   23:    return (mult.vector <= cursor) and (cursor - mult.vector < mult.size);
+   120168:   23-block  0
+branch  0 taken 120167 (fallthrough)
+branch  1 taken 1
+   120167:   23-block  1
+branch  2 taken 120156 (fallthrough)
+branch  3 taken 11
+   120156:   23-block  2
+       12:   23-block  3
+   120168:   23-block  4
+        -:   24:}
+        -:   25:
+function _ZN15IteratorMultime7urmatorEv called 120270 returned 100% blocks executed 100%
+   120270:   26:void IteratorMultime::urmator()
+        -:   27:/// \Complexity TETA(1)
+        -:   28:{
+   120270:   29:    ++cursor;
+        -:   30:    //if(cursor - mult.vector == mult.size )
+        -:   31:        //throw ("Cursorul a iesit din multime");
+   120270:   32:}
+        -:   33:
+function _ZN15IteratorMultime8anteriorEv called 5 returned 100% blocks executed 100%
+        5:   34:void IteratorMultime::anterior()
+        -:   35:/// \Complexity TETA(1)
+        -:   36:/*  Pseudocod:
+        -:   37: *
+        -:   38: *  anterior():
+        -:   39: *  |   cursor <- cursor - 1
+        -:   40: *  sfarsit anterior
+        -:   41: */
+        -:   42:{
+        5:   43:    --cursor;
+        -:   44:    //if(cursor == mult.vector - 1)
+        -:   45:        //throw ("Cursorul a iesit din multime");
+        5:   46:}
+        -:   47:
+function _ZN15IteratorMultime4primEv called 5 returned 100% blocks executed 100%
+        5:   48:void IteratorMultime::prim()
+        -:   49:/// \Complexity TETA(1)
+        -:   50:{
+        5:   51:    cursor = mult.vector;
+        5:   52:}

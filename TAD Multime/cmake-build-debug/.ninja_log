@@ -1,0 +1,7 @@
+# ninja log v5
+364	417	1711292740617346351	TAD_Multime	e576ca0c668da628
+1	390	1711291235227534342	CMakeFiles/TAD_Multime.dir/TestScurt.cpp.o	3250cb7eaecb20dc
+1	405	1711291235243533997	CMakeFiles/TAD_Multime.dir/TestExtins.cpp.o	98d8d65432645e14
+0	16	1711288913903585984	CMakeFiles/TAD_Multime.dir/main.cpp.o	982bee3a7515523a
+0	407	1711291235243533997	CMakeFiles/TAD_Multime.dir/Multime.cpp.o	d231054da52fb837
+0	364	1711292740565347571	CMakeFiles/TAD_Multime.dir/IteratorMultime.cpp.o	811eb91e4fb808f2
